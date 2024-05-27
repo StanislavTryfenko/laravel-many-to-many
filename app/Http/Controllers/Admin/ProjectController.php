@@ -92,7 +92,11 @@ class ProjectController extends Controller
 
         $project->update($validated);
 
-        $project->technologies()->sync($validated['technologies']);
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($validated['technologies']);
+        } else {
+            $project->technologies()->detach();
+        }
 
         return redirect()->route('admin.projects.show', $project)->with('message', 'Project updated successfully');
     }
