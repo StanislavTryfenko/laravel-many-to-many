@@ -19,7 +19,7 @@
                         <th scope="col">COVER IMAGE</th>
                         <th scope="col">NAME</th>
                         <th scope="col">CATEGORY</th>
-                        <th scope="col">DESCRIPTION</th>
+                        <th scope="col">Technologies</th>
                         <th scope="col">ACTIONS</th>
                     </tr>
                 </thead>
@@ -38,7 +38,12 @@
                             </td>
                             <td>{{ $project->name }}</td>
                             <td>{{ $project->type->name ?? 'No category' }}</td>
-                            <td>{{ $project->description }}</td>
+                            <td>
+                                @foreach ($project->technologies as $technology)
+                                    {{ $technology->name }}
+                                @endforeach
+                                {{-- @dd($project) --}}
+                            </td>
                             <td>
                                 <a class="btn btn-dark" href="{{ route('admin.projects.show', $project) }}">View</a>
                                 <a class="btn btn-primary" href="{{ route('admin.projects.edit', $project) }}">Edit</a>

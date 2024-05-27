@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Type;
+use App\Models\Technology;
 
 class ProjectController extends Controller
 {
@@ -26,7 +27,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        $technologies = Technology::all();
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -34,15 +36,23 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        //dd($request->all());
         $validated = $request->validated();
-
+        //dd($validated);
         $validated['slug'] = Str::slug($request->name);
 
         if ($request->has('image')) {
             $validated['image'] = Storage::put('uploads', $validated['image']);
         }
 
-        Project::create($validated);
+        if ($request->has('technologies')) {
+            $validated['technologies'] = $request->technologies;
+        }
+        //dd($validated);
+        $project = Project::create($validated);
+
+        $project->technologies()->attach($validated['technologies']);
+
         return redirect()->route('admin.projects.index')->with('message', 'Project created successfully');
     }
 
@@ -59,7 +69,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        $technologies = Technology::all();
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -78,7 +90,13 @@ class ProjectController extends Controller
             $validated['image'] = Storage::put('uploads', $validated['image']);
         }
 
+        if ($request->has('technologies')) {
+            $validated['technologies'] = $request->technologies;
+        }
+
         $project->update($validated);
+
+        $project->technologies()->sync($validated['technologies']);
 
         return redirect()->route('admin.projects.show', $project)->with('message', 'Project updated successfully');
     }

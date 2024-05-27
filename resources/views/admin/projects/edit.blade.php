@@ -37,6 +37,20 @@
             </div>
 
             <div class="mb-3">
+                <label class="d-block" for="technologies" class="form-label">Technologies</label>
+                @foreach ($technologies as $technology)
+                    <div class="form-check form-check-inline" >
+                        <input class="form-check-input @error('technologies') is-invalid @enderror" type="checkbox"
+                            name="technologies[]" id="technology-{{ $technology->id }}" value="{{ $technology->id }}"
+                            {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="technology-{{ $technology->id }}">
+                            {{ $technology->name }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
                     rows="6">{{ old('description', $project->description) }}</textarea>
