@@ -39,9 +39,11 @@
                             <td>{{ $project->name }}</td>
                             <td>{{ $project->type->name ?? 'No category' }}</td>
                             <td>
-                                @foreach ($project->technologies as $technology)
-                                    {{ $technology->name }}
-                                @endforeach
+                                @forelse ($project->technologies as $technology)
+                                    <span>{{ $technology->name }}</span>
+                                @empty
+                                    <span>Technologies not found</span>
+                                @endforelse
                                 {{-- @dd($project) --}}
                             </td>
                             <td>

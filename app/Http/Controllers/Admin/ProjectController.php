@@ -90,10 +90,6 @@ class ProjectController extends Controller
             $validated['image'] = Storage::put('uploads', $validated['image']);
         }
 
-        if ($request->has('technologies')) {
-            $validated['technologies'] = $request->technologies;
-        }
-
         $project->update($validated);
 
         $project->technologies()->sync($validated['technologies']);
