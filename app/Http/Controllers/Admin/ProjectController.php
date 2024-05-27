@@ -105,6 +105,7 @@ class ProjectController extends Controller
         if ($project->image) {
             Storage::delete($project->image);
         }
+        $project->technologies()->detach();
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message', 'Project deleted successfully');
     }
