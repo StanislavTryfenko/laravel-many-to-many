@@ -17,11 +17,11 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">COVER IMAGE</th>
-                            <th scope="col">NAME</th>
-                            <th scope="col">CATEGORY</th>
+                            <th scope="col">Cover image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
                             <th scope="col">Technologies</th>
-                            <th scope="col">ACTIONS</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
