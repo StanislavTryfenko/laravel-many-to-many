@@ -14,7 +14,7 @@
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
                         aria-describedby="nameHelper" placeholder="Type name" value="{{ old('name') }}" />
-                    <small id="nameHelper" class="form-text text-muted">Type a name for the type</small>
+                    <small id="nameHelper" class="form-text text-muted">Type a name for the technology</small>
                     @error('name')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
