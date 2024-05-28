@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<section class="bg-light">
     <div class="container py-5">
         <h1>Create a new type</h1>
 
@@ -23,5 +23,5 @@
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
-
+</section>
 @endsection

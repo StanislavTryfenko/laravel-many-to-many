@@ -11,7 +11,7 @@
             </x-button-delete>
         </div>
     </header>
-    <section class="py-5">
+    <section class="py-5 bg-light">
         <div class="container">
             <a class="d-block mb-3" href="{{ route('admin.projects.index') }}">Go back</a>
             @if (Str::startsWith($project->image, 'https://'))

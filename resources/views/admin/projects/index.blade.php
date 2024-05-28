@@ -7,13 +7,13 @@
             <a class="btn btn-primary align-self-center" href="{{ route('admin.projects.create') }}">New project</a>
         </div>
     </header>
-    <section class="py-5">
+    <section class="py-5 bg-light">
         <div class="container">
 
             @include('partials.session-messages')
 
             <div class="table-responsive">
-                <table class="table table-light">
+                <table class="table table-secondary">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
