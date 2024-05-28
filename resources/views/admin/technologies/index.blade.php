@@ -42,5 +42,5 @@
             </div>
         </div>
     </section>
-    {{ $technologies->links() }}
+    {{ $technologies->links('pagination::bootstrap-5') }}
 @endSection
