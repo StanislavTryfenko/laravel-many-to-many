@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <header class="bg-dark text-white py-3">
+    <header class="bg-dark text-white py-3 shadow-lg">
         <div class="container d-flex justify-content-between">
             <h1>Projects</h1>
             <a class="btn btn-primary align-self-center" href="{{ route('admin.projects.create') }}">New project</a>
@@ -13,7 +13,7 @@
             @include('partials.session-messages')
 
             <div class="table-responsive">
-                <table class="table table-secondary">
+                <table class="table table-secondary table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -21,10 +21,10 @@
                             <th scope="col">Name</th>
                             <th scope="col">Category</th>
                             <th scope="col">Technologies</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col" style="width: 210px">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="table-group-divider">
                         @forelse ($projects as $project)
                             <tr class="">
                                 <td scope="row">{{ $project->id }}</td>

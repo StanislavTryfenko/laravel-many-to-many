@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <header class="py-3 bg-dark text-white">
+    <header class="py-3 bg-dark text-white shadow-lg">
         <div class="container d-flex justify-content-between">
-            <h1>Types list</h1>
+            <h1>Types</h1>
             <a class="btn btn-primary align-self-center" href="{{ route('admin.types.create') }}">New type</a>
         </div>
     </header>
@@ -12,15 +12,15 @@
             @include('partials.session-messages')
 
             <div class="table-responsive">
-                <table class="table table-secondary">
+                <table class="table table-secondary table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col" style="width: 210px">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="table-group-divider">
                         @forelse ($types as $type)
                             <tr class="">
                                 <td scope="row">{{ $type->id }}</td>
