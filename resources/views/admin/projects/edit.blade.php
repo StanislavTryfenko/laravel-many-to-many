@@ -3,7 +3,10 @@
 
 @section('content')
     <div class="container py-5">
-        <h1>Add a new project</h1>
+        <div class="d-flex justify-content-between">
+            <h1>Edit: {{ $project->name }}</h1>
+            <a class="btn btn-primary align-self-center" href="{{ route('admin.projects.index') }}">Go back</a>
+        </div>
 
         @include('partials.validation-messages')
         @include('partials.session-messages')
@@ -53,8 +56,8 @@
                             <input class="form-check-input @error('technologies') is-invalid @enderror" type="checkbox"
                                 name="technologies[]" id="technology-{{ $technology->id }}" value="{{ $technology->id }}"
                                 {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
-                                {{-- usare il pluck secondo me è follia ma penso che è ciò che volevate --}}
-                                {{-- {{ in_array($technology->id, $project->technologies->pluck('id')->toArray()) ? 'checked' : '' }}> --}}
+                            {{-- usare il pluck secondo me è follia ma penso che è ciò che volevate --}}
+                            {{-- {{ in_array($technology->id, $project->technologies->pluck('id')->toArray()) ? 'checked' : '' }}> --}}
                             <label class="form-check-label" for="technology-{{ $technology->id }}">
                                 {{ $technology->name }}
                             </label>

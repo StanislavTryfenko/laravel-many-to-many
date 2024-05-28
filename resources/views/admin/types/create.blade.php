@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container py-5">
         <h1>Create a new type</h1>
 
         @include('partials.validation-messages')
@@ -20,7 +20,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
 

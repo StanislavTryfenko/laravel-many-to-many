@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+    <div class="container py-5">
 
-    <div class="container">
-        
-        <h1>Edit: {{ $type->name }}</h1>
-
-        <a class="btn btn-primary" href="{{ route('admin.types.index') }}">Go back</a>
+        <div class="d-flex justify-content-between">
+            <h1>Edit: {{ $type->name }}</h1>
+            <a class="btn btn-primary align-self-center" href="{{ route('admin.types.index') }}">Go back</a>
+        </div>
 
         @include('partials.validation-messages')
         @include('partials.session-messages')
@@ -28,5 +28,4 @@
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
-
 @endsection
