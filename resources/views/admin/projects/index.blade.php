@@ -29,7 +29,9 @@
                             <tr class="">
                                 <td scope="row">{{ $project->id }}</td>
                                 <td>
-                                    @if (Str::startsWith($project->image, 'https://'))
+                                    @if ($project->image === null)
+                                        <span>No image</span>
+                                    @elseif (Str::startsWith($project->image, 'https://'))
                                         <img width="140" loading="lazy" src="{{ $project->image }}"
                                             alt="{{ $project->name }}">
                                     @else
@@ -45,7 +47,6 @@
                                     @empty
                                         <span>Technologies not found</span>
                                     @endforelse
-                                    {{-- @dd($project) --}}
                                 </td>
                                 <td>
                                     <a class="btn btn-dark" href="{{ route('admin.projects.show', $project) }}">View</a>
