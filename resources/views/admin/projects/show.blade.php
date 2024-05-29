@@ -13,6 +13,9 @@
             </div>
         </div>
     </header>
+
+    @include('partials.validation-messages')
+
     <section class="py-5 bg-light">
         <div class="container" style="min-height: 600px">
             <div class="card mb-3">
@@ -35,7 +38,7 @@
                                 <br>
                                 <strong>Technologies: </strong>
                                 @forelse ($project->technologies as $technology)
-                                    <span>{{ $technology->name }}</span>
+                                    <span>{{ $technology->name }}@if(!$loop->last),@endif</span>
                                 @empty
                                     <span>Technologies not found</span>
                                 @endforelse

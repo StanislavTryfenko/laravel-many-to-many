@@ -75,7 +75,7 @@
                                     name="technologies[]" id="technology-{{ $technology->id }}"
                                     value="{{ $technology->id }}"
                                     {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
-                                {{-- usare il pluck secondo me è follia ma penso che è ciò che volevate --}}
+                                {{-- Alternativa brutta --}}
                                 {{-- {{ in_array($technology->id, $project->technologies->pluck('id')->toArray()) ? 'checked' : '' }}> --}}
                                 <label class="form-check-label" for="technology-{{ $technology->id }}">
                                     {{ $technology->name }}
@@ -93,7 +93,6 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
-
 
                 <button type="submit" class="btn btn-primary">
                     Update

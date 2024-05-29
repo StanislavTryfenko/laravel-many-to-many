@@ -19,7 +19,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Cover image</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Category</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Technologies</th>
                             <th scope="col" style="width: 210px">Actions</th>
                         </tr>
@@ -43,7 +43,7 @@
                                 <td>{{ $project->type->name ?? 'No category' }}</td>
                                 <td>
                                     @forelse ($project->technologies as $technology)
-                                        <span>{{ $technology->name }}</span>
+                                        <span>{{ $technology->name }}@if(!$loop->last),@endif</span>
                                     @empty
                                         <span>Technologies not found</span>
                                     @endforelse
