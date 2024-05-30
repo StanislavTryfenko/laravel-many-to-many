@@ -26,7 +26,8 @@
                                 <td scope="row">{{ $type->id }}</td>
                                 <td>{{ $type->name }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route('admin.types.edit', $type) }}">Edit</a>
+                                    <x-offcanvas.types :id="$type->id" :name="$type->name" :route=" route('admin.types.update', $type)" >
+                                    </x-offcanvas.types>
                                     <x-button-delete :id="$type->id" :name="$type->name" :route="route('admin.types.destroy', $type)">
                                     </x-button-delete>
                                 </td>

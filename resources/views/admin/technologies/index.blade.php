@@ -26,8 +26,8 @@
                                 <td scope="row">{{ $technology->id }}</td>
                                 <td>{{ $technology->name }}</td>
                                 <td>
-                                    <a class="btn btn-primary"
-                                        href="{{ route('admin.technologies.edit', $technology) }}">Edit</a>
+                                    <x-offcanvas.technologies :id="$technology->id" :name="$technology->name" :route=" route('admin.technologies.update', $technology)" >
+                                    </x-offcanvas.technologies>
                                     <x-button-delete :id="$technology->id" :name="$technology->name" :route="route('admin.technologies.destroy', $technology)">
                                     </x-button-delete>
                                 </td>
